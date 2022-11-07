@@ -4,5 +4,5 @@ function solution(array) {
 
     return array.sort(function(a, b)  {
   return b - a;
-}).reverse()[n];
+})[n];
 }
