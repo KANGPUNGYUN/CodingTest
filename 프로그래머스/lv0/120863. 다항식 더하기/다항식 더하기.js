@@ -1,34 +1,3 @@
-[3, 10].join("x + ");
-// '3x + 10'
-
-"3x + 7 + x".split(" + ");
-
-"3x + 7 + x".split(" + ").filter((v) => v.includes("x"));
-
-// x 항만 골라내기
-"3x + 7 + x"
-    .split(" + ")
-    .filter((v) => v.includes("x"))
-    .map((v) => v.replace("x", "") || "1");
-
-"3x + 7 + x"
-    .split(" + ")
-    .filter((v) => v.includes("x"))
-    .map((v) => +v.replace("x", "") || 1);
-
-"3x + 7 + x"
-    .split(" + ")
-    .filter((v) => v.includes("x"))
-    .map((v) => +v.replace("x", "") || 1)
-    .reduce((a, c) => a + c, 0);
-
-// 숫자 항만 골라내기
-"3x + 7 + x"
-    .split(" + ")
-    .filter((v) => !v.includes("x"))
-    .map((v) => +v)
-    .reduce((a, c) => a + c, 0);
-
 function solution(polynomial) {
     answer = []
     answer.push(polynomial
