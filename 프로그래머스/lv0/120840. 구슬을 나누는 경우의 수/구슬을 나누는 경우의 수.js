@@ -9,5 +9,5 @@ function solution(balls, share) {
     }
     let diff = balls-share;
     
-    return diff === 0 ? 1 : Math.round(fac(balls)/(fac(diff)*fac(share)));
+    return Math.round(fac(balls)/(fac(diff)*fac(share)));
 }
