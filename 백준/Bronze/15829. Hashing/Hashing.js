@@ -33,4 +33,4 @@ for(let i=0; i<Number(num); i++){
     res += hash.get(str[i])*index;
     index *= 31
 }
-console.log(res)
+console.log(res%1234567891)
