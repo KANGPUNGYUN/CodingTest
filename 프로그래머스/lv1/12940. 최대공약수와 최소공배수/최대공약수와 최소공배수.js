@@ -1,30 +1,16 @@
+function gcdFunc(a, b) {
+    if (b === 0) return a;
+
+    return gcdFunc(b, a % b);
+}
+
 function solution(n, m) {
+    let a = Math.max(n,m);
+    let b = Math.min(n,m);
     
-    let nList = [];
-    for(let i = 1; i<n+1; i++){
-        if(n%i === 0){
-            nList.push(i);
-        }
-    }
+    let gcd = gcdFunc(a, b);
     
-    let mList = [];
-    for(let i = 1; i<m+1; i++){
-        if(m%i ===0){
-            mList.push(i);
-        }
-    }
+    let lcm = n*m/gcd
     
-    let a = 1; 
-    for(let i = 0; i<nList.length; i++){
-        for(let j = 0; j<mList.length; j++){
-            if(mList[j] === nList[i]){
-                a = mList[j];
-            }
-        }
-    }
-    let b = n*m/a;
-    
-    var answer = [a, b];
-    return answer;
-    
+    return [gcd, lcm];
 }
