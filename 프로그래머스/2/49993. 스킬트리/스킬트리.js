@@ -1,5 +1,5 @@
 function solution(skill, skill_trees) {
-	const regex = new RegExp(`[^${skill.split("")}]`, 'g');
+	const regex = new RegExp(`[^${skill}]`, 'g');
     let res = 0;
     for(let i=0; i<skill_trees.length; i++){
         if(skill_trees[i].replace(regex, "").length === 0){
