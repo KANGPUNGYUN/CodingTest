@@ -8,8 +8,8 @@ function solution(sizes) {
         return v
     })
     
-    let width = Math.max(...sizes.map((v)=>v[0]))
-    let height = Math.max(...sizes.map((v)=>v[1]))
+    let w = Math.max(...sizes.map((v)=>v[0]))
+    let h = Math.max(...sizes.map((v)=>v[1]))
     
-    return width*height
+    return w*h
 }
