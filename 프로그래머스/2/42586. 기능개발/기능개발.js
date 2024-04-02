@@ -1,21 +1,22 @@
 function solution(progresses, speeds) {
-    const rest = progresses.map( v => 100 - v);
-    const res = rest.map((v,i)=> Math.ceil(v/speeds[i]));
-    let arr = [];
-    let init = 1;
-    let max = res[0];
-    for(let i=0; i<res.length; i++){
-        if(max<res[i+1]){
-            arr.push(init)
-            init = 1;
-            max = res[i+1];
-        }else{
-            init++
+    const res = [];
+    const rest = [];
+    for(let i=0; i<speeds.length; i++){
+        rest.push(Math.ceil((100 - progresses[i])/speeds[i]));
+    }
+    
+    let curMax = rest[0];
+    let count = 0;
+    for(let i = 0; i < rest.length; i++) {
+        if(curMax >= rest[i]) {
+            count++;
+        } else {
+            res.push(count);
+            count = 1;
+            curMax = rest[i];
         }
     }
-    let last = arr.reduce((acc,cur)=> acc+ cur, 0)
-    if(speeds.length - last !== 0){
-        arr.push(speeds.length - last)    
-    }
-    return arr
+
+    res.push(count);
+    return res
 }
