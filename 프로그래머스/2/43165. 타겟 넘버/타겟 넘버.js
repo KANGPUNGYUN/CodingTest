@@ -5,7 +5,7 @@ function solution(numbers, target) {
             if(sum === target){
                 count++
             }
-            return
+            return 
         }
         dfs(sum + numbers[depth], depth+1)
         dfs(sum - numbers[depth], depth+1)
