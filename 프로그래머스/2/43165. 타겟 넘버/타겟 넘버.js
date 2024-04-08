@@ -1,17 +1,15 @@
 function solution(numbers, target) {
-    let count = 0;
-    function dfs(sum, depth){
-        if(depth === numbers.length){
-            if(sum === target){
-                count++
+    let answer = 0;
+    getAnswer(0,0);
+    function getAnswer(x,value) {
+        if(x<numbers.length){
+            getAnswer(x+1,value + numbers[x]);
+            getAnswer(x+1,value - numbers[x]);
+        } else{
+            if(value === target){
+                answer++
             }
-            return 
         }
-        dfs(sum + numbers[depth], depth+1)
-        dfs(sum - numbers[depth], depth+1)
     }
-    
-    dfs(0,0)
-    
-    return count
+    return answer;
 }
