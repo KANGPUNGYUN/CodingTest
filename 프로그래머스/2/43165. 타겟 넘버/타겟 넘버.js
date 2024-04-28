@@ -1,15 +1,15 @@
 function solution(numbers, target) {
-    let answer = 0;
-    getAnswer(0,0);
-    function getAnswer(x,value) {
-        if(x<numbers.length){
-            getAnswer(x+1,value + numbers[x]);
-            getAnswer(x+1,value - numbers[x]);
-        } else{
-            if(value === target){
-                answer++
-            }
+    let count = 0;
+    function dfs(sum, time){
+        if(time === numbers.length && sum === target){
+            count += 1
+            return
+        }else if(time === numbers.length){
+            return
         }
+        dfs(sum+numbers[time] , time+1);
+        dfs(sum-numbers[time] , time+1);
     }
-    return answer;
+    dfs(0,0);
+    return count
 }
