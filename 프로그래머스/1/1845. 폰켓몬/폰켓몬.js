@@ -1,3 +1,3 @@
 function solution(nums) {
-    return Math.min(nums.length/2, [...new Set(nums)].length)
+    return Math.min([...new Set(nums)].length, nums.length/2)
 }
