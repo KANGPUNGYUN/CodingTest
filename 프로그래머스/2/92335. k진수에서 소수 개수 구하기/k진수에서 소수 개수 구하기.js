@@ -1,22 +1,29 @@
 function solution(n, k) {
     let res = 0;
-    n = n.toString(k).split("0").map(Number);
-    
-    for(let i=0; i<n.length; i++) {
-        if(n[i] !== 0 && n[i] !== 1) {
-            if(isPrime(n[i])){
-                res += 1;
-            }
-        }
+    let changedNumber = n.toString(k);
+    let arr = changedNumber.split("0").filter(i => i!=="1" && i!=="" );
+    for(let i = 0; i<arr.length; i++){
+        res += isPrime(Number(arr[i]))
     }
-
-    return res;
+    return res
 }
 
 function isPrime(num) {
-    for(let i=2; i<=Math.sqrt(num); i++) {
-        if(num % i == 0) return false;
+    if(num < 2){
+        return 0
     }
-
-    return true;
+    
+    if(num === 2){
+        return 1
+    }
+    
+    let sqrt = Math.sqrt(num)
+    
+    for(let i=2; i<=sqrt; i++){
+        if(num % i === 0){
+            return 0
+        }
+    }
+    
+    return 1
 }
