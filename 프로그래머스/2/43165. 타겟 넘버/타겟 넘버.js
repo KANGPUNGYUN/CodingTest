@@ -1,15 +1,20 @@
 function solution(numbers, target) {
     let count = 0;
-    function dfs(sum, time){
-        if(time === numbers.length && sum === target){
-            count += 1
-            return
-        }else if(time === numbers.length){
-            return
+    
+    function dfs(index, sum) {
+
+        if (index === numbers.length) {
+            if (sum === target) {
+                count++;
+            }
+            return;
         }
-        dfs(sum+numbers[time] , time+1);
-        dfs(sum-numbers[time] , time+1);
+        
+        dfs(index + 1, sum + numbers[index]);
+        dfs(index + 1, sum - numbers[index]);
     }
-    dfs(0,0);
+    
+    dfs(0, 0);
+    
     return count
 }
